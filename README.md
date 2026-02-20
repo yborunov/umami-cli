@@ -5,6 +5,9 @@ CLI for self-hosted Umami analytics using the Umami API.
 ## Quick start
 
 ```
+# Install (Homebrew)
+brew install yborunov/tap/umami-cli
+
 # Build
 make build
 
