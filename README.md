@@ -2,21 +2,40 @@
 
 CLI for self-hosted Umami analytics using the Umami API.
 
-## Quick start
-
-```
-# Install (Homebrew)
+### Install (Homebrew)
 brew install yborunov/tap/umami-cli
 
+
+## Quick start
+```
 # Set endpoint (required)
 export UMAMI_URL="https://analytics.example.com"
 
 # Login and save token
 umami-cli auth login --username you --password secret
 
+# List websites
+umami-cli websites list
+```
+
+### Configure Umami URL
+```
+export UMAMI_URL="https://analytics.example.com"
+```
+
+### Authenticate
+
+```
+# Login and save token
+umami-cli auth login --username you --password secret
+
 # Verify token
 umami-cli auth verify
+```
 
+### Commands
+
+```
 # List websites
 umami-cli websites list
 
