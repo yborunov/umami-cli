@@ -1,0 +1,56 @@
+version: 2
+
+project_name: umami
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - id: umami
+    main: ./cmd/umami
+    binary: umami
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+    ldflags:
+      - -s -w
+      - -X github.com/yborunov/umami-cli/internal/cmd.version={{.Version}}
+      - -X github.com/yborunov/umami-cli/internal/cmd.commit={{.Commit}}
+      - -X github.com/yborunov/umami-cli/internal/cmd.date={{.Date}}
+
+archives:
+  - format: tar.gz
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+
+checksum:
+  name_template: "checksums.txt"
+
+release:
+  github:
+    owner: yborunov
+    name: umami-cli
+
+brews:
+  - name: umami-cli
+    homepage: "https://github.com/yborunov/umami-cli"
+    description: "CLI for self-hosted Umami analytics"
+    license: "MIT"
+    repository:
+      owner: yborunov
+      name: homebrew-tap
+    directory: Formula
+    install: |
+      bin.install "umami"
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - '^docs:'
+      - '^test:'
