@@ -8,34 +8,37 @@ CLI for self-hosted Umami analytics using the Umami API.
 # Install (Homebrew)
 brew install yborunov/tap/umami-cli
 
-# Build
-make build
-
 # Set endpoint (required)
 export UMAMI_URL="https://analytics.example.com"
 
 # Login and save token
-./bin/umami auth login --username you --password secret
+umami-cli auth login --username you --password secret
 
 # Verify token
-./bin/umami auth verify
+umami-cli auth verify
 
 # List websites
-./bin/umami websites list
+umami-cli websites list
 
 # List teams
-./bin/umami teams list
+umami-cli teams list
 
 # List websites for a team
-./bin/umami teams websites <team-id>
+umami-cli teams websites <team-id>
 
 # Analytics examples
-./bin/umami analytics active <website-id>
-./bin/umami analytics stats <website-id> --start-at 1704067200000 --end-at 1706745600000
-./bin/umami analytics pageviews <website-id> --start-at 1704067200000 --end-at 1706745600000 --unit day
-./bin/umami analytics metrics <website-id> --start-at 1704067200000 --end-at 1706745600000 --type path --limit 100
-./bin/umami analytics metrics-expanded <website-id> --start-at 1704067200000 --end-at 1706745600000 --type referrer --limit 100
-./bin/umami analytics events-series <website-id> --start-at 1704067200000 --end-at 1706745600000 --unit day
+umami-cli analytics active <website-id>
+umami-cli analytics stats <website-id> --start-at 1704067200000 --end-at 1706745600000
+umami-cli analytics pageviews <website-id> --start-at 1704067200000 --end-at 1706745600000 --unit day
+umami-cli analytics metrics <website-id> --start-at 1704067200000 --end-at 1706745600000 --type path --limit 100
+umami-cli analytics metrics-expanded <website-id> --start-at 1704067200000 --end-at 1706745600000 --type referrer --limit 100
+umami-cli analytics events-series <website-id> --start-at 1704067200000 --end-at 1706745600000 --unit day
+```
+
+## Manual build
+
+```
+make build
 ```
 
 ## Configuration
@@ -54,20 +57,20 @@ Environment variables:
 ## Commands
 
 ```
-umami auth login --username <user> --password <pass>
-umami auth verify
+umami-cli auth login --username <user> --password <pass>
+umami-cli auth verify
 
-umami websites list
+umami-cli websites list
 
-umami teams list
-umami teams websites <team-id>
+umami-cli teams list
+umami-cli teams websites <team-id>
 
-umami analytics active <website-id>
-umami analytics events-series <website-id> [--start-at <ms>] [--end-at <ms>] [--unit <unit>] [--timezone <tz>] [filters]
-umami analytics metrics <website-id> --type <type> [--start-at <ms>] [--end-at <ms>] [--limit <n>] [--offset <n>] [filters]
-umami analytics metrics-expanded <website-id> --type <type> [--start-at <ms>] [--end-at <ms>] [--limit <n>] [--offset <n>] [filters]
-umami analytics pageviews <website-id> [--start-at <ms>] [--end-at <ms>] [--unit <unit>] [--timezone <tz>] [--compare <prev|yoy>] [filters]
-umami analytics stats <website-id> [--start-at <ms>] [--end-at <ms>] [filters]
+umami-cli analytics active <website-id>
+umami-cli analytics events-series <website-id> [--start-at <ms>] [--end-at <ms>] [--unit <unit>] [--timezone <tz>] [filters]
+umami-cli analytics metrics <website-id> --type <type> [--start-at <ms>] [--end-at <ms>] [--limit <n>] [--offset <n>] [filters]
+umami-cli analytics metrics-expanded <website-id> --type <type> [--start-at <ms>] [--end-at <ms>] [--limit <n>] [--offset <n>] [filters]
+umami-cli analytics pageviews <website-id> [--start-at <ms>] [--end-at <ms>] [--unit <unit>] [--timezone <tz>] [--compare <prev|yoy>] [filters]
+umami-cli analytics stats <website-id> [--start-at <ms>] [--end-at <ms>] [filters]
 ```
 
 Common analytics flags:
