@@ -2,9 +2,26 @@
 
 CLI for self-hosted Umami analytics using the Umami API.
 
+## Installation
+
 ### Install (Homebrew)
 ```
 brew install yborunov/tap/umami-cli
+```
+
+### Install with Go
+
+```
+go install github.com/yborunov/umami-cli/cmd/umami-cli@latest
+```
+
+### Install from source
+
+```
+git clone https://github.com/yborunov/umami-cli.git
+cd umami-cli
+make build
+./bin/umami-cli
 ```
 
 ## Quick start
@@ -17,11 +34,6 @@ umami-cli auth login --username you --password secret
 
 # List websites
 umami-cli websites list
-```
-
-### Configure Umami URL
-```
-export UMAMI_URL="https://analytics.example.com"
 ```
 
 ### Authenticate
@@ -61,22 +73,6 @@ umami-cli analytics events-series <website-id> --start-at 1704067200000 --end-at
 make build
 ```
 
-## Installation
-
-### Install with Go
-
-```
-go install github.com/yborunov/umami-cli/cmd/umami-cli@latest
-```
-
-### Install from source
-
-```
-git clone https://github.com/yborunov/umami-cli.git
-cd umami-cli
-make build
-./bin/umami-cli
-```
 
 ## Configuration
 
