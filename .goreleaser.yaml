@@ -8,8 +8,8 @@ before:
 
 builds:
   - id: umami
-    main: ./cmd/umami
-    binary: umami
+    main: ./cmd/umami-cli
+    binary: umami-cli
     env:
       - CGO_ENABLED=0
     goos:
@@ -46,7 +46,7 @@ brews:
       name: homebrew-tap
     directory: Formula
     install: |
-      bin.install "umami"
+      bin.install "umami-cli"
 
 changelog:
   sort: asc

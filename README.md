@@ -61,6 +61,23 @@ umami-cli analytics events-series <website-id> --start-at 1704067200000 --end-at
 make build
 ```
 
+## Installation
+
+### Install with Go
+
+```
+go install github.com/yborunov/umami-cli/cmd/umami-cli@latest
+```
+
+### Install from source
+
+```
+git clone https://github.com/yborunov/umami-cli.git
+cd umami-cli
+make build
+./bin/umami-cli
+```
+
 ## Configuration
 
 The CLI stores the API token at:
@@ -108,7 +125,7 @@ Common analytics flags:
 ## Project layout
 
 ```
-cmd/umami           // entrypoint
+cmd/umami-cli       // entrypoint
 internal/cmd        // CLI commands
 internal/client     // HTTP client
 internal/config     // config loading/saving

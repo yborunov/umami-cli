@@ -1,10 +1,10 @@
 BIN_DIR := bin
-BINARY := $(BIN_DIR)/umami
+BINARY := $(BIN_DIR)/umami-cli
 
 .PHONY: build
 build:
 	mkdir -p $(BIN_DIR)
-	go build -ldflags "-X github.com/yborunov/umami-cli/internal/cmd.version=$(VERSION) -X github.com/yborunov/umami-cli/internal/cmd.commit=$(COMMIT) -X github.com/yborunov/umami-cli/internal/cmd.date=$(DATE)" -o $(BINARY) ./cmd/umami
+	go build -ldflags "-X github.com/yborunov/umami-cli/internal/cmd.version=$(VERSION) -X github.com/yborunov/umami-cli/internal/cmd.commit=$(COMMIT) -X github.com/yborunov/umami-cli/internal/cmd.date=$(DATE)" -o $(BINARY) ./cmd/umami-cli
 
 .PHONY: clean
 clean:
